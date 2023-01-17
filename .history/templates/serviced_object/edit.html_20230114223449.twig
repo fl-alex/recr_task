@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ServicedObject{% endblock %}
+
+{% block body %}
+    <h1>Edit ServicedObject</h1>
+
+    {{ include('serviced_object/_form2.html.twig', {'button_label': 'Update'}) }}
+
+
+    
+
+
+
+    <a href="{{ path('app_serviced_object_index') }}">----- BACK to list</a>
+
+    {{ include('serviced_object/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ServicedObject{% endblock %}
+
+{% block body %}
+    <h1>Edit ServicedObject</h1>
+
+    {{ include('serviced_object/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    <ul id="email-fields-list"
+        data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li></li>'|e }}"
+        data-widget-counter="{{ form.tags|length }}">
+    {% for tagsField in form.tags %}
+        <li>
+            {{ form_errors(tagsField) }}
+            {{ form_widget(tagsField) }}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <button type="button"
+        class="btn_add_field"
+        data-list-selector="#email-fields-list">Dodaj nowe pole</button>
+
+        
+
+
+    <a href="{{ path('app_serviced_object_index') }}">----- BACK to list</a>
+
+    {{ include('serviced_object/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ServicedObject index{% endblock %}
+
+{% block body %}
+    <h1>ServicedObject index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for serviced_object in serviced_objects %}
+            <tr>
+                <td>{{ serviced_object.id }}</td>
+                <td>{{ serviced_object.name }}</td>
+                <td>
+                    <a href="{{ path('app_serviced_object_show', {'id': serviced_object.id}) }}">show</a>
+                    <a href="{{ path('app_serviced_object_edit', {'id': serviced_object.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_serviced_object_new') }}">Create new</a>
+{% endblock %}

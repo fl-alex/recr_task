@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+
+
+    <ul id="email-fields-list"
+        data-prototype="{{ form_widget(form.files.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li></li>'|e }}"
+        data-widget-counter="{{ form.files|length }}">
+    {% for filelinkField in form.files %}
+        <li>
+            {{ form_errors(filelinkField) }}
+            {{ form_widget(filelinkField) }}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <button type="button"
+        class="btn_add_field"
+        data-list-selector="#email-fields-list">Dodaj nowe pole</button>
+
+
+
+
+{{ form_end(form) }}
